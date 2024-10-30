@@ -20,7 +20,6 @@ function processData(data) {
     const lists = []
     for (const list of dataLists) {
         const obj = {
-            id: list.id,
             name: list.name
         };
         obj.cards = getCards(list.id, dataCards, dataChecklists);
@@ -53,7 +52,7 @@ function getChecklist(checklistId, dataChecklists) {
     for (const chlst of dataChecklists) {
         if (checklistId == chlst.id) {
             for (const item of chlst.checkItems) {
-                console.log(item)
+                checklist.push(item.name);
             }
         }
     }
