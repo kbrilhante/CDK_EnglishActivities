@@ -1,14 +1,17 @@
 [
     {
         "title": "Tell a Story",
-        "url": "https://kbrilhante.github.io/CDK_TellAStory/"
+        "url": "https://kbrilhante.github.io/CDK_TellAStory/",
+        "completed": false
     },
     {
         "title": "Tongue Twister",
-        "url": "https://kbrilhante.github.io/CDK_TongueTwister/"
+        "url": "https://kbrilhante.github.io/CDK_TongueTwister/",
+        "completed": true
     },
     {
         "title": "Wheel of (mis)Fortune",
-        "url": "https://kbrilhante.github.io/CDK_WheelOfMisFortune/"
+        "url": "https://kbrilhante.github.io/CDK_WheelOfMisFortune/",
+        "completed": false
     }
 ]

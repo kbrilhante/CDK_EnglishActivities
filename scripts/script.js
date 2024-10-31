@@ -28,6 +28,7 @@ function listItem(info) {
     link.target = "_blank";
     link.className = "list-group-item list-group-item-action";
     link.innerText = info.title;
+    if (!info.completed) link.classList.add("disabled")
     return link;
 }
 
