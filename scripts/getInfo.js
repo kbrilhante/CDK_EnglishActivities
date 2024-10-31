@@ -104,8 +104,34 @@ function changeActivity(info) {
     output.hidden = false;
 }
 
-function copyText() {}
+function copyText() {
+    const text = document.getElementById("txtOutput").value;
+    navigator.clipboard.writeText(text).then(
+        success => {
+            console.log("copiado com sucesso");
+            alert("copiado com sucesso");
+        },
+        err => {
+            console.error(err);
+        }
+    );
+}
 
-function downloadText() {}
+function downloadText() {
+    const fileName = document.getElementById("txtFileName").value;
+    const text = document.getElementById("txtOutput").value;
+    const blob = new Blob([text], { type: "application/json" });
+    const downLink = document.createElement("a");
+    downLink.download = fileName;
+    if (webkitURL != null) {
+        downLink.href = webkitURL.createObjectURL(blob);
+    } else {
+        downLink.href = URL.createObjectURL(blob);
+        downLink.onclick = destroyClickedElement;
+        downLink.style.display = 'none';
+        document.body.appendChild(downLink);
+    }
+    downLink.click();
+}
 
 initialize();

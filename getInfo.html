@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>English Activities</title>
+    <title>English Activities From Trello</title>
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
@@ -33,6 +33,13 @@
   <body>
     <div id="" class="container">
       <h1 class="display-5 text-center">English Activities</h1>
+      <hr>
+      <div class="row my-1">
+        <div class="col-auto mx-auto">
+          <a href="https://trello.com/b/40jf8Ikk/conversation-squad" class="btn btn-secondary" target="_blank">Trello</a>
+        </div>
+      </div>
+      <hr>
       <div class="row mx-1">
         <div class="col" id="selector"></div>
         <!-- <div class="col-auto">
@@ -42,8 +49,8 @@
           </select>
         </div> -->
       </div>
-      
-      <div id="output">
+
+      <div id="output" hidden>
         <hr />
         <div class="row mx-1">
           <div class="col-auto">
@@ -51,11 +58,11 @@
           </div>
           <div class="col">
             <input
-            class="form-control"
-            type="text"
-            name="txtFileName"
-            id="txtFileName"
-            placeholder="filename"
+              class="form-control"
+              type="text"
+              name="txtFileName"
+              id="txtFileName"
+              placeholder="filename"
             />
           </div>
         </div>
@@ -66,10 +73,18 @@
           </div>
           <div class="col-auto">
             <div class="btn-group" role="group">
-              <button type="button" id="btnCopy" class="btn btn-sm btn-secondary">
+              <button
+                type="button"
+                id="btnCopy"
+                class="btn btn-sm btn-secondary"
+              >
                 <i class="fa-solid fa-copy"></i>
               </button>
-              <button type="button" id="btnDownload" class="btn btn-sm btn-secondary">
+              <button
+                type="button"
+                id="btnDownload"
+                class="btn btn-sm btn-secondary"
+              >
                 <i class="fa-solid fa-download"></i>
               </button>
             </div>
@@ -78,10 +93,10 @@
         <div class="row mx-1">
           <div class="col">
             <textarea
-            class="form-control"
-            name="txtOutput"
-            id="txtOutput"
-            rows="30"
+              class="form-control"
+              name="txtOutput"
+              id="txtOutput"
+              rows="25"
             ></textarea>
           </div>
         </div>
@@ -90,5 +105,4 @@
 
     <script src="./scripts/getInfo.js"></script>
   </body>
-  </html>
-  
+</html>
