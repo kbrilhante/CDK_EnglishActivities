@@ -10,7 +10,7 @@ function initialize() {
 
 async function getData(jsonFile) {
     const response = await fetch(jsonFile);
-    const data = await response.json()
+    const data = await response.json();
     return data;
 }
 
@@ -24,7 +24,7 @@ function processData(data) {
             name: list.name
         };
         obj.topics = getCards(list.id, dataCards, dataChecklists);
-        lists.push(obj)
+        lists.push(obj);
     }
     return lists;
 }
@@ -32,14 +32,14 @@ function processData(data) {
 function getCards(listId, dataCards, dataChecklists) {
     const cards = [];
     for (const card of dataCards) {
-        const cardListId = card.idList
+        const cardListId = card.idList;
         if (cardListId == listId) {
             const obj = {
                 name: card.name,
                 shortUrl: card.shortUrl,
                 url: card.url,
             }
-            const checklistId = card.idChecklists
+            const checklistId = card.idChecklists;
             obj.checklist = getChecklist(checklistId[0], dataChecklists);
             if (!obj.checklist) delete obj.checklist;
             cards.push(obj);
@@ -93,9 +93,9 @@ function changeActivity(info) {
     const index = document.getElementById("selActivity").value;
     const output = document.getElementById("output");
     const txtFileName = document.getElementById("txtFileName");
-    const txtOutput = document.getElementById("txtOutput")
+    const txtOutput = document.getElementById("txtOutput");
 
-    info = info[index]
+    info = info[index];
 
     let fileName = info.name.replaceAll(" ", "");
     fileName += ".json";
