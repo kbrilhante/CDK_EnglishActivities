@@ -2,9 +2,10 @@ function initialize() {
     const JSONDATA = "./data/40jf8Ikk - conversation-squad.json";
     getData(JSONDATA).then((data) => {
         const info = processData(data);
-        console.log(info);
         createSelector(info);
-    })
+    });
+    document.getElementById("btnCopy").onclick = copyText;
+    document.getElementById("btnDownload").onclick = downloadText;
 }
 
 async function getData(jsonFile) {
@@ -14,7 +15,6 @@ async function getData(jsonFile) {
 }
 
 function processData(data) {
-    // console.log(data)
     const dataLists = data.lists;
     const dataCards = data.cards;
     const dataChecklists = data.checklists;
@@ -23,7 +23,7 @@ function processData(data) {
         const obj = {
             name: list.name
         };
-        obj.cards = getCards(list.id, dataCards, dataChecklists);
+        obj.topics = getCards(list.id, dataCards, dataChecklists);
         lists.push(obj)
     }
     return lists;
@@ -41,6 +41,7 @@ function getCards(listId, dataCards, dataChecklists) {
             }
             const checklistId = card.idChecklists
             obj.checklist = getChecklist(checklistId[0], dataChecklists);
+            if (!obj.checklist) delete obj.checklist;
             cards.push(obj);
         }
     }
@@ -60,15 +61,18 @@ function getChecklist(checklistId, dataChecklists) {
     return checklist;
 }
 
-function createSelector(data) {
+function createSelector(info) {
     const select = document.createElement("select");
     select.className = "form-select";
-    for (let i = 0; i < data.length; i++) {
-        const list = data[i];
+    select.id = "selActivity"
+    for (let i = 0; i < info.length; i++) {
+        const list = info[i];
         select.appendChild(createOption(list.name, i));
     }
-    select.appendChild(createOption("Select Option"));
-    select.onchange = 
+    select.appendChild(createOption("Select Activity"));
+    select.onchange = () => {
+        changeActivity(info);
+    }
     document.getElementById("selector").appendChild(select);
 }
 
@@ -84,5 +88,24 @@ function createOption(text, value) {
     }
     return opt;
 }
+
+function changeActivity(info) {
+    const index = document.getElementById("selActivity").value;
+    const output = document.getElementById("output");
+    const txtFileName = document.getElementById("txtFileName");
+    const txtOutput = document.getElementById("txtOutput")
+
+    info = info[index]
+
+    let fileName = info.name.replaceAll(" ", "");
+    fileName += ".json";
+    txtFileName.value = fileName;
+    txtOutput.value = JSON.stringify(info);
+    output.hidden = false;
+}
+
+function copyText() {}
+
+function downloadText() {}
 
 initialize();

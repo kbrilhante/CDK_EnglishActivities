@@ -29,23 +29,66 @@
     />
 
     <link rel="stylesheet" href="style.css" />
-    <script src="./scripts/getInfo.js"></script>
   </head>
   <body>
     <div id="" class="container">
       <h1 class="display-5 text-center">English Activities</h1>
-      <div class="row mx-2">
+      <div class="row mx-1">
         <div class="col" id="selector"></div>
-        <div class="col-auto">
+        <!-- <div class="col-auto">
           <select class="form-select" name="selType" id="selType">
-            <option value="0" selected>JSON</option>
-            <option value="1">txt</option>
+            <option value="json" selected>JSON</option>
+            <option value="txt">txt</option>
           </select>
+        </div> -->
+      </div>
+      
+      <div id="output">
+        <hr />
+        <div class="row mx-1">
+          <div class="col-auto">
+            <label class="form-label" for="txtFileName">File name:</label>
+          </div>
+          <div class="col">
+            <input
+            class="form-control"
+            type="text"
+            name="txtFileName"
+            id="txtFileName"
+            placeholder="filename"
+            />
+          </div>
+        </div>
+        <hr />
+        <div class="row m-1">
+          <div class="col">
+            <label class="form-label" for="txtOutput">Your Output:</label>
+          </div>
+          <div class="col-auto">
+            <div class="btn-group" role="group">
+              <button type="button" id="btnCopy" class="btn btn-sm btn-secondary">
+                <i class="fa-solid fa-copy"></i>
+              </button>
+              <button type="button" id="btnDownload" class="btn btn-sm btn-secondary">
+                <i class="fa-solid fa-download"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row mx-1">
+          <div class="col">
+            <textarea
+            class="form-control"
+            name="txtOutput"
+            id="txtOutput"
+            rows="30"
+            ></textarea>
+          </div>
         </div>
       </div>
-      <hr>
-
     </div>
 
+    <script src="./scripts/getInfo.js"></script>
   </body>
-</html>
+  </html>
+  
