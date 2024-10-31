@@ -3,6 +3,7 @@ function initialize() {
     getData(JSONDATA).then((data) => {
         const info = processData(data);
         console.log(info);
+        createSelector(info);
     })
 }
 
@@ -57,6 +58,31 @@ function getChecklist(checklistId, dataChecklists) {
         }
     }
     return checklist;
+}
+
+function createSelector(data) {
+    const select = document.createElement("select");
+    select.className = "form-select";
+    for (let i = 0; i < data.length; i++) {
+        const list = data[i];
+        select.appendChild(createOption(list.name, i));
+    }
+    select.appendChild(createOption("Select Option"));
+    select.onchange = 
+    document.getElementById("selector").appendChild(select);
+}
+
+function createOption(text, value) {
+    const opt = document.createElement('option');
+    opt.textContent = text;
+    if (value == undefined) {
+        opt.selected = true;
+        opt.disabled = true;
+        opt.hidden = true;
+    } else {
+        opt.value = value;
+    }
+    return opt;
 }
 
 initialize();
