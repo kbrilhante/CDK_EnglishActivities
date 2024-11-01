@@ -1,0 +1,1 @@
+xcopy "G:\Meu Drive\CDK\codigosDaKahProjetos\CDK_EnglishActivities\data\activities.json" "G:\Meu Drive\CDK\codigosDaKahProjetos\CDK_EnglishActivitiesList" /E /I /y 

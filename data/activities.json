@@ -10,6 +10,11 @@
         "completed": true
     },
     {
+        "title": "Hangman",
+        "url": "",
+        "completed": false
+    },
+    {
         "title": "Wheel of (mis)Fortune",
         "url": "https://kbrilhante.github.io/CDK_WheelOfMisFortune/",
         "completed": false
