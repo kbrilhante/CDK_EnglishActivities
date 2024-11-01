@@ -5,8 +5,12 @@ const FILETYPES = {
     },
     txt: {
         extension: ".txt",
-        type: "",
+        type: "text/plain",
     },
+    csv: {
+        extension: ".csv",
+        type: "text/csv",
+    }
 }
 
 function initialize() {
