@@ -127,7 +127,7 @@ function getText(info, type) {
         case "txt":
             let txt = [];
             for (topic of info.topics) {
-                txt.push(topic.name);
+                txt.push(topic.name.trim());
             }
             return txt.join("\n");
     }
