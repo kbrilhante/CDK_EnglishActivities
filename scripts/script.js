@@ -1,7 +1,7 @@
 function initialize() {
     const JSONDATA = "./data/activities.json";
     getData(JSONDATA).then((data) => {
-        const info = processData(data);
+        processData(data);
     });
 }
 
