@@ -1,3 +1,14 @@
+const FILETYPES = {
+    json: {
+        extension: ".json",
+        type: "application/json",
+    },
+    txt: {
+        extension: ".txt",
+        type: "",
+    },
+}
+
 function initialize() {
     const JSONDATA = "./data/40jf8Ikk - conversation-squad.json";
     getData(JSONDATA).then((data) => {
@@ -69,23 +80,27 @@ function createSelector(info) {
         const list = info[i];
         select.appendChild(createOption(list.name, i));
     }
-    select.appendChild(createOption("Select Activity"));
+    select.appendChild(createOption("Select Activity", -1));
     select.onchange = () => {
         changeActivity(info);
     }
     document.getElementById("selector").appendChild(select);
+    document.getElementById("selType").onchange = () => {
+        if (select.value != -1) {
+            changeActivity(info);
+        }
+    }
 }
 
 function createOption(text, value) {
     const opt = document.createElement('option');
     opt.textContent = text;
-    if (value == undefined) {
+    if (value == -1) {
         opt.selected = true;
         opt.disabled = true;
         opt.hidden = true;
-    } else {
-        opt.value = value;
     }
+    opt.value = value;
     return opt;
 }
 
@@ -94,20 +109,34 @@ function changeActivity(info) {
     const output = document.getElementById("output");
     const txtFileName = document.getElementById("txtFileName");
     const txtOutput = document.getElementById("txtOutput");
+    const type = document.getElementById("selType").value;
 
     info = info[index];
 
     let fileName = info.name.replaceAll(" ", "");
-    fileName += ".json";
+    fileName += FILETYPES[type].extension;
     txtFileName.value = fileName;
-    txtOutput.value = JSON.stringify(info);
+    txtOutput.value = getText(info, type);
     output.hidden = false;
+}
+
+function getText(info, type) {
+    switch (type) {
+        case "json":
+            return JSON.stringify(info);
+        case "txt":
+            let txt = [];
+            for (topic of info.topics) {
+                txt.push(topic.name);
+            }
+            return txt.join("\n");
+    }
 }
 
 function copyText() {
     const text = document.getElementById("txtOutput").value;
     navigator.clipboard.writeText(text).then(
-        success => {
+        () => {
             console.log("copiado com sucesso");
             alert("copiado com sucesso");
         },
