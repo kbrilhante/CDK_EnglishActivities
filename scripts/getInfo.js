@@ -36,7 +36,7 @@ function processData(data) {
     const lists = []
     for (const list of dataLists) {
         const obj = {
-            name: list.name
+            activityName: list.name
         };
         obj.topics = getCards(list.id, dataCards, dataChecklists);
         lists.push(obj);
@@ -50,7 +50,7 @@ function getCards(listId, dataCards, dataChecklists) {
         const cardListId = card.idList;
         if (cardListId == listId) {
             const obj = {
-                name: card.name,
+                topicTitle: card.name,
                 shortUrl: card.shortUrl,
                 url: card.url,
             }
@@ -79,10 +79,10 @@ function getChecklist(checklistId, dataChecklists) {
 function createSelector(info) {
     const select = document.createElement("select");
     select.className = "form-select";
-    select.id = "selActivity"
+    select.id = "selActivity";
     for (let i = 0; i < info.length; i++) {
         const list = info[i];
-        select.appendChild(createOption(list.name, i));
+        select.appendChild(createOption(list.activityName, i));
     }
     select.appendChild(createOption("Select Activity", -1));
     select.onchange = () => {
@@ -117,7 +117,7 @@ function changeActivity(info) {
 
     info = info[index];
 
-    let fileName = info.name.replaceAll(" ", "");
+    let fileName = info.activityName.replaceAll(" ", "");
     fileName += FILETYPES[type].extension;
     txtFileName.value = fileName;
     txtOutput.value = getText(info, type);
@@ -131,9 +131,24 @@ function getText(info, type) {
         case "txt":
             let txt = [];
             for (topic of info.topics) {
-                txt.push(topic.name.trim());
+                txt.push(topic.topicTitle.trim());
             }
             return txt.join("\n");
+        case "csv":
+            let csv = [];
+            let headers = Object.keys(info.topics[0]);
+            const index = headers.indexOf("checklist");
+            if (index >= 0) headers.splice(index, 1);
+            headers.unshift("activityName");
+            csv.push(headers.join(","));
+            for (const topic of info.topics) {
+                let line = [info.activityName]
+                for (let i = 1; i < headers.length; i++) {
+                    line.push(topic[headers[i]]);
+                }
+                csv.push(line.join(","));
+            }
+            return csv.join("\n");
     }
 }
 
