@@ -1,4 +1,4 @@
-const JSONDATA = "/data/40jf8Ikk - english-convo.json";
+const JSONDATA = "./data/40jf8Ikk - english-convo.json";
 const FILETYPES = {
     json: {
         extension: ".json",
