@@ -1,3 +1,4 @@
+const JSONDATA = "/data/40jf8Ikk - english-convo.json";
 const FILETYPES = {
     json: {
         extension: ".json",
@@ -14,7 +15,6 @@ const FILETYPES = {
 }
 
 function initialize() {
-    const JSONDATA = "./data/40jf8Ikk - conversation-squad.json";
     getData(JSONDATA).then((data) => {
         const info = processData(data);
         createSelector(info);
