@@ -16,6 +16,7 @@ async function getData(jsonFile) {
 }
 
 function processData(data) {
+    data.sort((a, b) => { return a.title.localeCompare(b.title) });
     const container = document.getElementById("lstActivities");
     const listGroup = document.createElement("div");
     listGroup.className = "list-group";
@@ -26,7 +27,6 @@ function processData(data) {
 }
 
 function listItem(info) {
-    console.log(info)
     const link = document.createElement("a");
     link.href = info.url;
     link.target = "_blank";
