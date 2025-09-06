@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>English Activities From Trello</title>
+    <title></title>
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
@@ -31,79 +31,85 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="" class="container">
-      <h1 class="display-5 text-center">English Activities</h1>
-      <hr>
-      <div class="row my-1">
-        <div class="col-auto mx-auto">
-          <a href="https://trello.com/b/40jf8Ikk/conversation-squad" class="btn btn-secondary" target="_blank">Trello</a>
-        </div>
-      </div>
-      <hr>
-      <div class="row mx-1">
-        <div class="col" id="selector"></div>
-        <div class="col-auto">
-          <select class="form-select" name="selType" id="selType">
-            <option value="json" selected>JSON</option>
-            <option value="txt">TXT</option>
-            <option value="csv">CSV</option>
-          </select>
-        </div>
-      </div>
-
-      <div id="output" hidden>
-        <hr />
-        <div class="row mx-1">
-          <div class="col-auto">
-            <label class="form-label" for="txtFileName">File name:</label>
-          </div>
+    <main>
+      <div class="container">
+        <div class="row my-2 border-bottom border-2">
           <div class="col">
-            <input
-              class="form-control"
-              type="text"
-              name="txtFileName"
-              id="txtFileName"
-              placeholder="filename"
-            />
+            <h1 id="title" class="display-4 text-center"></h1>
+          </div>
+          <div id="controlButtons" class="col-auto my-auto" hidden></div>
+        </div>
+        <div class="row my-2 border-bottom border-2 py-3">
+          <div class="col-auto mx-auto">
+            <a
+              href="https://trello.com/b/40jf8Ikk/english-convo"
+              class="btn btn-secondary"
+              target="_blank"
+              >Trello</a
+            >
           </div>
         </div>
-        <hr />
-        <div class="row m-1">
-          <div class="col">
-            <label class="form-label" for="txtOutput">Your Output:</label>
-          </div>
+        <div class="row my-2 mx-1 border-bottom border-2 py-3">
+          <div class="col" id="selector"></div>
           <div class="col-auto">
-            <div class="btn-group" role="group">
-              <button
-                type="button"
-                id="btnCopy"
-                class="btn btn-sm btn-secondary"
-              >
-                <i class="fa-solid fa-copy"></i>
-              </button>
-              <button
-                type="button"
-                id="btnDownload"
-                class="btn btn-sm btn-secondary"
-              >
-                <i class="fa-solid fa-download"></i>
-              </button>
+            <select class="form-select" name="selType" id="selType">
+              <option value="json" selected>JSON</option>
+              <option value="txt">TXT</option>
+              <option value="csv">CSV</option>
+            </select>
+          </div>
+        </div>
+        <div id="output" hidden>
+          <div class="row my-2 mx-1 border-bottom border-2 py-3">
+            <div class="col-auto">
+              <label class="form-label" for="txtFileName">File name:</label>
+            </div>
+            <div class="col">
+              <input
+                class="form-control"
+                type="text"
+                name="txtFileName"
+                id="txtFileName"
+                placeholder="filename"
+              />
+            </div>
+          </div>
+          <div class="row my-1 mx-1 py-2">
+            <div class="col">
+              <label class="form-label" for="txtOutput">Your Output:</label>
+            </div>
+            <div class="col-auto">
+              <div class="btn-group" role="group">
+                <button
+                  type="button"
+                  id="btnCopy"
+                  class="btn btn-sm btn-secondary"
+                >
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+                <button
+                  type="button"
+                  id="btnDownload"
+                  class="btn btn-sm btn-secondary"
+                >
+                  <i class="fa-solid fa-download"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row my-2 mx-1 py-2">
+            <div class="col">
+              <textarea
+                class="form-control"
+                name="txtOutput"
+                id="txtOutput"
+                rows="20"
+              ></textarea>
             </div>
           </div>
         </div>
-        <div class="row mx-1">
-          <div class="col">
-            <textarea
-              class="form-control"
-              name="txtOutput"
-              id="txtOutput"
-              rows="20"
-            ></textarea>
-          </div>
-        </div>
       </div>
-    </div>
-
+    </main>
     <script src="./scripts/getInfo.js"></script>
   </body>
 </html>

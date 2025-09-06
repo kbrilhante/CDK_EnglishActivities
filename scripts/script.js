@@ -1,4 +1,8 @@
+const title = "English Activities";
+
 function initialize() {
+    document.title = title;
+    document.getElementById("title").innerText = title;
     const JSONDATA = "./data/activities.json";
     getData(JSONDATA).then((data) => {
         processData(data);

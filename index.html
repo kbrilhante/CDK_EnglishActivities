@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>English Activities</title>
+    <title></title>
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
@@ -31,30 +31,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="row my-1">
-        <div class="col">
-          <h1 class="display-4 text-center">English Activities</h1>
-        </div>
-        <!--
-        <div class="col-auto my-auto">
-          <div class="btn-group">
-            <a id="getInfo" class="btn btn-secondary" title="Other list" target="_blank" href="https://kbrilhante.github.io/CDK_EnglishActivitiesList/">
-              <i class="fa-solid fa-hippo"></i>
-            </a>
-            <a id="getInfo" class="btn btn-secondary" title="Trello things and stuff" href="./getInfo.html">
-              <i class="fa-solid fa-skull-crossbones"></i>
-            </a>
+     <main>
+      <div class="container">
+        <div class="row my-2 border-bottom border-2">
+          <div class="col">
+            <h1 id="title" class="display-4 text-center"></h1>
           </div>
+          <div id="controlButtons" class="col-auto my-auto" hidden></div>
         </div>
-        -->
+        <div class="row my-3">
+          <div class="col" id="lstActivities"></div>
+        </div>
       </div>
-      <hr />
-      <div class="row my-1">
-        <div class="col" id="lstActivities"></div>
-      </div>
-    </div>
-    
+    </main>
     <script src="./scripts/script.js"></script>
   </body>
   </html>

@@ -13,8 +13,11 @@ const FILETYPES = {
         type: "text/csv",
     }
 }
+const title = "English Activities From Trello";
 
 function initialize() {
+    document.title = title;
+    document.getElementById("title").innerText = title;
     getData(JSONDATA).then((data) => {
         const info = processData(data);
         createSelector(info);
