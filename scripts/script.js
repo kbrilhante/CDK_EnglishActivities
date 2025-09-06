@@ -31,8 +31,13 @@ function listItem(info) {
     link.href = info.url;
     link.target = "_blank";
     link.className = "list-group-item list-group-item-action";
-    link.innerText = info.title;
-    if (!info.completed) link.classList.add("disabled")
+    let txt = info.title;
+    if (info.beta) txt += '<small class="ms-4 text-muted">Beta</small>';
+    if (!info.completed) {
+        link.classList.add("disabled");
+        // txt += '<small class="ms-4 text-muted">N/A</small>';
+    }
+    link.innerHTML = txt;
     return link;
 }
 

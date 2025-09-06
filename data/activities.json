@@ -2,36 +2,43 @@
     {
         "title": "Conversation Topics",
         "url": "https://kbrilhante.github.io/CDK_ConversationTopics/",
-        "completed": true
+        "completed": true,
+        "beta": false
     },
     {
         "title": "Guess Who?",
         "url": "https://www.codigosdakah.com.br/codigosdakah.com.br/jogos/jogosDaKah/stardewValleyGuessWho/",
-        "completed": true
+        "completed": true,
+        "beta": false
     },
     {
         "title": "Hangman",
         "url": "https://kbrilhante.github.io/CDK_Hangman/",
-        "completed": true
+        "completed": true,
+        "beta": false
     },
     {
         "title": "Tell a Story",
         "url": "https://kbrilhante.github.io/CDK_TellAStory/",
-        "completed": true
+        "completed": true,
+        "beta": false
     },
     {
         "title": "Tongue Twister",
         "url": "https://kbrilhante.github.io/CDK_TongueTwister/",
-        "completed": true
+        "completed": true,
+        "beta": false
     },
     {
         "title": "Wheel of (mis)Fortune",
         "url": "https://kbrilhante.github.io/CDK_WheelOfMisFortune/",
-        "completed": false
+        "completed": false,
+        "beta": false
     },
     {
         "title": "Wise Words",
         "url": "https://kbrilhante.github.io/CDK_Wise_Words/",
-        "completed": true
+        "completed": true,
+        "beta": true
     }
 ]
