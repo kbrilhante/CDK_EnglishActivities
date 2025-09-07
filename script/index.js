@@ -1,7 +1,7 @@
 function mainContent() {
     document.title = TITLE_INDEX;
     document.getElementById("title").innerText = TITLE_INDEX;
-    loadJson(JSONDATA).then(processData);
+    loadJson(JSON_DATA).then(processData);
 }
 
 function processData(data) {
