@@ -1,12 +1,35 @@
 const title = "English Activities";
+const ICON_LIGHT_THEME = `<i class="fa-solid fa-sun"></i>`;
+const ICON_DARK_THEME = `<i class="fa-solid fa-moon"></i>`;
 
 function initialize() {
     document.title = title;
     document.getElementById("title").innerText = title;
+    controlButtons();
     const JSONDATA = "./data/activities.json";
     getData(JSONDATA).then((data) => {
         processData(data);
     });
+}
+
+function controlButtons() {
+    const controlButtonsTag = document.getElementById("controlButtons");
+    controlButtonsTag.hidden = false;
+    const btnTheme = document.createElement("button");
+    btnTheme.innerHTML = ICON_LIGHT_THEME;
+    btnTheme.onclick = () => {
+        if (document.documentElement.getAttribute("data-bs-theme") === "dark") {
+            document.documentElement.setAttribute("data-bs-theme", "light");
+            btnTheme.innerHTML = ICON_DARK_THEME;
+            btnTheme.title = "Change to dark mode";
+        } else {
+            document.documentElement.setAttribute("data-bs-theme", "dark");
+            btnTheme.innerHTML = ICON_LIGHT_THEME;
+            btnTheme.title = "Change to light mode";
+        }
+    }
+    btnTheme.title = "Change to light mode";
+    controlButtonsTag.appendChild(btnTheme);
 }
 
 async function getData(jsonFile) {
